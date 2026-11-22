@@ -1,0 +1,72 @@
+# Cisco Router — Command Outputs and Findings
+
+## 1. Device Information
+
+**Command:** `show version`
+
+- Platform: Cisco IOSv
+- IOS Version: 15.9(3)M9
+- Hostname: R1
+- Available interfaces: 4 Gigabit Ethernet interfaces
+
+## 2. Interface Status
+
+**Command:** `show ip interface brief`
+
+| Interface | IP Address | Status |
+|---|---|---|
+| GigabitEthernet0/0 | 192.168.10.1 | up/up |
+| GigabitEthernet0/1 | DHCP | up/up |
+| GigabitEthernet0/2 | Unassigned | administratively down |
+| GigabitEthernet0/3 | Unassigned | administratively down |
+
+## 3. Routing Information
+
+**Command:** `show ip route`
+
+- Connected network: 192.168.10.0/24
+- Local route: 192.168.10.1/32
+- Gateway of last resort: Not configured
+
+## 4. SSH Status
+
+**Command:** `show ip ssh`
+
+- SSH enabled
+- SSH version: 2.0
+- Password and public-key authentication supported
+- RSA host key configured
+
+## 5. Router Clock
+
+**Command:** `show clock`
+
+- Reported router time: 22:26:02 UTC
+- Date: November 21, 2026
+
+## 6. System Logging
+
+**Command:** `show logging`
+
+- System logging enabled
+- SSH 2.0 enablement event recorded
+- Configuration activity recorded
+- Interface state changes recorded
+
+## 7. Configuration Findings
+
+**Command:** `show running-config`
+
+- Hostname configured as R1
+- Management interface configured with 192.168.10.1/24
+- SSH version 2 configured
+- Local user authentication configured
+- VTY lines permit SSH access
+
+## Project Observations
+
+The router was configured to support remote SSH monitoring from the Linux node. Its management interface was operational, and its routing table contained the directly connected management subnet.
+
+**Security note:** Sensitive authentication hashes and SSH key material have intentionally been excluded from this document.
+
+**Evidence source:** Actual Cisco IOS command outputs collected during the PNETLab session on November 22, 2026.
